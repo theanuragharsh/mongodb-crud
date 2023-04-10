@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: myDatabase
+      uri: mongodb://localhost/myDatabase
+      authentication-database: admin
+      username: myUser
+      password: myPassword
