@@ -1,4 +1,4 @@
-package com.mongodbcrud.model.repo;
+package com.mongodbcrud.repository;
 
 import com.mongodbcrud.model.ToDo;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface ToDoRepo extends MongoRepository<ToDo,String> {
-
+public interface ToDoRepository extends MongoRepository<ToDo, String> {
     @Query("{'todo':?0}")
     Optional<ToDo> findByTodo(String todo);
 }

@@ -19,7 +19,7 @@ public class ToDo {
     @Id
     private String id;
     @NotNull(message = "todo can not be empty or null")
-    private String todo;
+    private String todoItem;
     @NotNull(message = "description must be provided and not null")
     private String description;
     @NotNull(message = "completion status must be either true or false and not null")

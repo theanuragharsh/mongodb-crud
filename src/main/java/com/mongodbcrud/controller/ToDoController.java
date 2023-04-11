@@ -1,6 +1,7 @@
 package com.mongodbcrud.controller;
 
-import com.mongodbcrud.model.ToDo;
+import com.mongodbcrud.dto.ToDoItemRequestDto;
+import com.mongodbcrud.dto.ToDoItemResponse;
 import com.mongodbcrud.service.ToDoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,28 +17,28 @@ public class ToDoController {
     private final ToDoService toDoService;
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<ToDo>> findAllToDo() {
+    public ResponseEntity<List<ToDoItemResponse>> findAllToDo() {
         return toDoService.findAllToDo();
     }
 
     @GetMapping("/findById/{id}")
-    public ToDo findById(@PathVariable String id) {
+    public ToDoItemResponse findById(@PathVariable String id) {
         return toDoService.findById(id);
     }
 
     @GetMapping("/findByToDo/{todo}")
-    public ToDo findByToDo(@PathVariable String todo) {
-        return toDoService.findByToDo(todo);
+    public ToDoItemResponse findByToDo(@PathVariable String todoItem) {
+        return toDoService.findByToDo(todoItem);
     }
 
     @PostMapping("createTodo")
-    public ToDo createTodo(@RequestBody ToDo toDo) {
-        return toDoService.createTodo(toDo);
+    public ToDoItemResponse createTodo(@RequestBody ToDoItemRequestDto toDoItemRequestDto) {
+        return toDoService.createTodo(toDoItemRequestDto);
     }
 
     @PutMapping("/updateTodo/{id}")
-    public List<ToDo> updateTodo(@PathVariable String id, @RequestBody ToDo updatedToDo){
-        return toDoService.updateTodo(id, updatedToDo);
+    public List<ToDoItemResponse> updateTodo(@PathVariable String id, @RequestBody ToDoItemRequestDto toDoItemRequestDto) {
+        return toDoService.updateTodo(id, toDoItemRequestDto);
     }
 
     @DeleteMapping("/deleteById/{id}")

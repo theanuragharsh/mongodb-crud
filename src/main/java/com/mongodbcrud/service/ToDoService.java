@@ -1,20 +1,21 @@
 package com.mongodbcrud.service;
 
-import com.mongodbcrud.model.ToDo;
+import com.mongodbcrud.dto.ToDoItemRequestDto;
+import com.mongodbcrud.dto.ToDoItemResponse;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface ToDoService {
-    ResponseEntity<List<ToDo>> findAllToDo();
+    ResponseEntity<List<ToDoItemResponse>> findAllToDo();
 
-    ToDo findById(String id);
+    ToDoItemResponse findById(String id);
 
-    ToDo findByToDo(String todo);
+    ToDoItemResponse findByToDo(String todoItem);
 
-    ToDo createTodo(ToDo toDo);
+    ToDoItemResponse createTodo(ToDoItemRequestDto toDoItemRequestDto);
 
-    List<ToDo> updateTodo(String id, ToDo updatedToDo);
+    List<ToDoItemResponse> updateTodo(String id, ToDoItemRequestDto toDoItemRequestDto);
 
     ResponseEntity<String> deleteById(String id);
 }
