@@ -26,7 +26,7 @@ public class ToDoController {
         return toDoService.findById(id);
     }
 
-    @GetMapping("/findByToDo/{todo}")
+    @GetMapping("/findByToDo/{todoItem}")
     public ToDoItemResponse findByToDo(@PathVariable String todoItem) {
         return toDoService.findByToDo(todoItem);
     }
