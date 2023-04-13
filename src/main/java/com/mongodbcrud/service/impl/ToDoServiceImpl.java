@@ -26,11 +26,11 @@ public class ToDoServiceImpl implements ToDoService {
     private static String notFound = "Item is not present...";
 
     @Override
-    public ResponseEntity<List<ToDoItemResponse>> findAllToDo() {
+    public List<ToDoItemResponse> findAllToDo() {
         List<ToDoItemResponse> toDoList = toDoRepository.findAll().stream().map(toDoItemMapper::toDto).toList();
         if (toDoList.isEmpty())
             throw new ToDoItemNotFoundException(notFound);
-        return new ResponseEntity<>(toDoList, HttpStatus.OK);
+        return toDoList;
     }
 
     @Override

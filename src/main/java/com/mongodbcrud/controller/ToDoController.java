@@ -17,7 +17,7 @@ public class ToDoController {
     private final ToDoService toDoService;
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<ToDoItemResponse>> findAllToDo() {
+    public List<ToDoItemResponse> findAllToDo() {
         return toDoService.findAllToDo();
     }
 

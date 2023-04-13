@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface ToDoService {
-    ResponseEntity<List<ToDoItemResponse>> findAllToDo();
+    List<ToDoItemResponse> findAllToDo();
 
     ToDoItemResponse findById(String id);
 
