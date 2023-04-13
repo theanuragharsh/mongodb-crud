@@ -4,6 +4,7 @@ import com.mongodbcrud.dto.ToDoItemRequestDto;
 import com.mongodbcrud.dto.ToDoItemResponse;
 import com.mongodbcrud.service.ToDoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +33,7 @@ public class ToDoController {
     }
 
     @PostMapping("createTodo")
+    @ResponseStatus(HttpStatus.CREATED)
     public ToDoItemResponse createTodo(@RequestBody ToDoItemRequestDto toDoItemRequestDto) {
         return toDoService.createTodo(toDoItemRequestDto);
     }
